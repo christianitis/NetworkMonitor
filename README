@@ -1,0 +1,25 @@
+Network Monitor: A simple script for ensuring connectivity to devices on your network, and (if desired) send an email notification if a device is down.
+It simply pings a list of targets provided in a .csv file and sends you an email if they aren't available.
+
+By Christian Hollinger, 2022
+Public Domain
+
+To use, replace the values in targets.csv with a comma-seperated list of hostnames or IP addresses.
+
+If you want to use the mailing feature:
+Configure the mailing system by entering values into the TO_EMAIL and FROM_EMAIL constants.
+Define arguments in the SEND sub (i.e. method, mail server, etc.) to actually send your mail.
+Uncomment line 66 to enable to notification emails
+
+TODO:
+- Instead of commenting out a line, use a command line argument to decide whether or not to send mail.
+- Reply to the notification email to enable notifications for that host again.
+- Actually, come to think of it; wouldn't it be cool to have the whole thing controllable by email?
+
+KNOWN BUGS:
+- Sometimes when dumping the reasons that a ping failed, certain hash valued (specifically {addr})
+  have weird unicode characters instead of useful data.
+- Emails (on my setup, using enterprise Exchange at least) show that the messages are from an "outside source".
+  Probably just me not setting up the authentication properly.
+
+Good luck.
